@@ -96,9 +96,27 @@ def recommend_portfolio(intent_request):
         # Perform basic validation on the supplied input slots.
         # Use the elicitSlot dialog action to re-prompt
         # for the first violation detected.
-
-        ### YOUR DATA VALIDATION CODE STARTS HERE ###
-
+        
+        if age is not None
+            #birth_date = datetime.strptime(birthday, "%Y-%m-%d")
+            #age = relativedelta(datetime.now(), birth_date).years
+            if age < 21:
+                return build_validation_result(
+                    False,
+                    "birthday",
+                    "You should be at least 21 years old to use this service, "
+                    "please provide a different date of birth.",
+                )
+            elif age > 65:
+                return build_validation_result(
+                False,
+                'birthday',
+                """We are sorry, the age you have provided is outside the range of our model's
+                effective prediction range."""
+                )
+            
+        
+                
         ### YOUR DATA VALIDATION CODE ENDS HERE ###
 
         # Fetch current session attibutes
