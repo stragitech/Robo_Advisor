@@ -87,7 +87,7 @@ def recommend_portfolio(intent_request):
     """
 
     first_name = get_slots(intent_request)["firstName"]
-    age = get_slots(intent_request)["age"]
+    age = int(get_slots(intent_request)["age"])
     investment_amount = get_slots(intent_request)["investmentAmount"]
     risk_level = get_slots(intent_request)["riskLevel"]
     source = intent_request["invocationSource"]
@@ -97,7 +97,7 @@ def recommend_portfolio(intent_request):
         # Use the elicitSlot dialog action to re-prompt
         # for the first violation detected.
         
-        if age is not None
+        if age is not None:
             #birth_date = datetime.strptime(birthday, "%Y-%m-%d")
             #age = relativedelta(datetime.now(), birth_date).years
             if age < 21:
